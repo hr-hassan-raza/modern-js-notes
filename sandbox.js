@@ -128,4 +128,141 @@ switch (grade) {
   default:
     console.log("Invalid Grade");
 }
+/*
+function greet() {
+  // code block for function
+  console.log("Hello there");
+}
+// function expression
+// we store function in varaiable
+const speak = function () {
+  console.log("good day");
+};
+
+/*
+the difference b/w function decleration and function expression is that
+function declared can be called before its decleration
+
+fun() // it works
+
+function fun ()
+{
+  console.log('hello')
+}
+*/
+
+/*
+/// just like python we can give default values to arguments
+const speak = function (name = "Hassan") {
+  console.log(`Heool world ${name}`);
+};
+
+// Arrow function
+
+const calArea = (radius) => {
+  return 3.14 * radius ** 2;
+};
+
+const bill = (products, tax) => {
+  let total = 0;
+  for (let i = 0; i < products.lenght; i++) {
+    total += products[i] + products * tax;
+  }
+  return total;
+};
+
+// when one parameter
+
+const calAreA = (radius) => {
+  return radius;
+};
+// also can be;
+const calcArea = (radius) => radius ** 2 * 3.14;
+
+// call back function
+// passing function as argument to another function
+const myFunc = (callbackFunc) => {
+  let value = 50;
+  callbackFunc(value);
+};
+myFunc((value) => {
+  console.log("Hello Word");
+});
+
+let people = ["mario", "luigi", "ryu", "shaun", "chun-li"];
+people.forEach((person) => {
+  console.log(person);
+});
+*/
+
+//Objects
+
+// object literals
+
+const blogs = [
+  { title: "asdhasdhad", likes: 20 },
+  { title: "dhasdhaod", likes: 80 },
+];
+
+let user = {
+  name: "crystal",
+  age: 30,
+  email: "hraza2000@gmail.com",
+  blogs: [
+    { title: "asdhasdhad", likes: 20 },
+    { title: "dhasdhaod", likes: 80 },
+  ],
+  login: function () {
+    console.log("Hello World");
+  },
+  logBlogs: function () {
+    console.log("this user has written the following blogs: ");
+    this.blogs.forEach((blog) => {
+      console.log(blog.title, blog.likes);
+    });
+  },
+}; /// a key value pair
+// dot notation
+
+user.name; // gives name property
+user["name"]; // also gives name property
+user.login(); // an object method
+
+/*
+This key word does not evoke special object property but rather a global property in arrow
+function so we use function key word in object
+ */
+
+//Math Object
+
+cosole.log(Math.E);
+
+const area = 7.7;
+console.log(Math.round(area));
+
+const random = Math.random();
+
+console.log(Math.round(random * 100));
+
+// permitive types are stored on stach while refernce types like objects are stored in heap
+/*
+reference type means when we create a object for instance creating an object locates the contents
+of objects in meomry and it creates pointer which refernce that object
+
+const blogs = [
+  { title: "asdhasdhad", likes: 20 },
+  { title: "dhasdhaod", likes: 80 },
+];
+
+const blogCopy = blogs
+
+blogCopy['title'] = 'Hassan'
+
+
+console.log(blogCopy['title'])
+
+console.log(blogs['title'])
+
+// both will be changed
+
 */
