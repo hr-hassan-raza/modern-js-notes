@@ -199,6 +199,8 @@ people.forEach((person) => {
 
 // object literals
 
+/*
+
 const blogs = [
   { title: "asdhasdhad", likes: 20 },
   { title: "dhasdhaod", likes: 80 },
@@ -228,10 +230,10 @@ user.name; // gives name property
 user["name"]; // also gives name property
 user.login(); // an object method
 
-/*
+
 This key word does not evoke special object property but rather a global property in arrow
 function so we use function key word in object
- */
+
 
 //Math Object
 
@@ -243,7 +245,7 @@ console.log(Math.round(area));
 const random = Math.random();
 
 console.log(Math.round(random * 100));
-
+*/
 // permitive types are stored on stach while refernce types like objects are stored in heap
 /*
 reference type means when we create a object for instance creating an object locates the contents
@@ -265,4 +267,75 @@ console.log(blogs['title'])
 
 // both will be changed
 
+*/
+/// Document object model
+
+//const para = document.querySelector("body > h1"); // single element
+//console.log(para);
+/*
+// Grab mulptiple tags
+
+const paraAll = document.querySelectorAll("p");
+// we can access parAll as (Group of all <p> tags) basically a list
+paraAll[2];
+
+// get an element by ID
+
+const title = document.getElementById("page-title");
+
+// get elements by their class name
+
+const errors = document.getElementsByClassName("error"); // returns HTML collection
+
+// can't use forEach method for this
+
+// get elements by their tag name
+
+const paras = document.getElementsByTagName("p");
+*/
+
+/*
+const para = document.querySelector("body > h1"); // single element
+console.log(para);
+
+para.innerText = "ninjas are awesome!"; // update the context
+
+para.forEach((para) => {
+  console.log(para.innerText);
+});
+
+const content = document.querySelector(".content");
+
+content.innerHTML = "<h2>This is a new h2</h2>";
+
+const people = ["mario", "hassan", "ali"];
+
+people.forEach((person) => {
+  content.innerHTML += `<p>${person}</p>`;
+});
+*/
+
+/// Seting attribute
+
+/*
+
+const link = document.querySelector("a");
+console.log(link.getAttribute("href"));
+link.setAttribute("href", "www.xyz.com");
+link.innerText("Hellllloooooo");
+// also
+
+link.setAttribute("style", "color: green");
+
+*/
+/*
+const title = document.querySelector("h1");
+
+title.setAttribute("style", "margin: 50px;");
+
+console.log(title.style);
+
+title.style.margin = "50px";
+
+title.style.fontSize = "60px";
 */
