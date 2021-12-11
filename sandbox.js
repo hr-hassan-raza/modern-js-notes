@@ -339,3 +339,100 @@ title.style.margin = "50px";
 
 title.style.fontSize = "60px";
 */
+
+// Asynchronous and Sync JS
+/*
+through call back function we can write async java script
+console.log(1);
+console.log(2);
+
+setTimeout(() => {
+  console.log("callback function");
+}, 2000);
+
+console.log(3);
+console.log(4);
+*/
+// HTTP Requests
+
+const getTodos = (resource, callback) => {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest(); // request object
+    request.addEventListener("readystatechange", () => {
+      // console.log(request, request.readyState);
+      if (request.readyState === 4 && request.status === 200) {
+        const data = JSON.parse(request.responseText); // takes string as input converts to JSON
+        resolve(data);
+      } else if (request.readyState === 4) {
+        reject("error");
+      }
+    });
+    request.open("GET", resource);
+    request.send();
+  });
+};
+/*
+getTodos((err, data) => {
+  console.log("call back fired");
+  // console.log(err, data);
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+*/
+/// states go to website XMLHttp.readystate to better understand the output
+// response statues
+// callback hell grab data from different APIs netsing call back
+
+// Promise example
+
+// resolve and reject are built in function
+/*
+const getSomething = () => {
+  return new Promise((resolve, reject) => {
+    // fetch something
+    resolve("some data");
+    //reject("some error");
+  }); // sometime todo returns data or rejected
+};
+
+// .then call function is called when we resolve
+
+
+getSomething.then(
+  (data) => {
+    console.log(data);
+  },
+  (err) => {
+    console.log(err);
+  }
+);
+
+
+getSomething()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+*/
+
+// chaining promises
+getTodos("https://jsonplaceholder.typicode.com/todos/1")
+  .then((data) => {
+    console.log("promse 1 resolved: ", data);
+    return getTodos("https://jsonplaceholder.typicode.com/todos/1");
+  })
+  .then((data) => {
+    console.log("promise 2 resolved: ", data);
+    return getTodos("https://jsonplaceholder.typicode.com/todos/1");
+  })
+  .then((data) => {
+    console.log("promise 3 resolved: ", data);
+  })
+  .catch((err) => {
+    console.log("promise rejected: ", err);
+  });
